@@ -12,7 +12,7 @@
 {
     AVCaptureSession *captureSession;
     int rssiLimit;
-    BOOL lightOnOff;
+    BOOL lightOnOffStatus;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *rssiNumber;
@@ -31,7 +31,7 @@
                                              selector:@selector(recieveBeaconStatus:)                                                 name:@"BeaconStatus"
                                                object:nil];
     self.rssiNumber.delegate = self;
-    lightOnOff = NO;
+    lightOnOffStatus = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,7 +44,7 @@
 - (void)recieveBeaconStatus:(NSNotification *)notification
 {
     NSDictionary *userInfo = notification.userInfo;
-    NSString *status = userInfo[@"status"];
+//    NSString *status = userInfo[@"status"];
     NSString *major = userInfo[@"major"] == [NSNull null] ? @"" : [userInfo[@"major"] stringValue];
     NSString *minor = userInfo[@"minor"] == [NSNull null] ? @"" : [userInfo[@"minor"] stringValue];
     NSNumber *rssi = userInfo[@"rssi"] == [NSNull null] ? @"" : userInfo[@"rssi"];
@@ -63,12 +63,12 @@
                 
             case NSOrderedAscending: // num1が小さいとき
                 [self lightoff];
-                lightOnOff = NO;
+                lightOnOffStatus = NO;
                 break;
                 
             case NSOrderedDescending: // num1が大きいとき
                 [self lighton];
-                lightOnOff = YES;
+                lightOnOffStatus = YES;
                 break;
         }
         
@@ -77,12 +77,12 @@
 }
 - (IBAction)lightOnOff:(id)sender {
     
-    if (lightOnOff == NO) {
+    if (lightOnOffStatus == NO) {
         [self lighton];
-        lightOnOff = YES;
-    } else if (lightOnOff == YES) {
+        lightOnOffStatus = YES;
+    } else if (lightOnOffStatus == YES) {
         [self lightoff];
-        lightOnOff = NO;
+        lightOnOffStatus = NO;
     }
     
 }
