@@ -11,7 +11,12 @@
 @interface LOWBViewController ()
 {
     AVCaptureSession *captureSession;
+    int rssiLimit;
+    BOOL lightOnOff;
 }
+
+@property (weak, nonatomic) IBOutlet UITextField *rssiNumber;
+@property (weak, nonatomic) IBOutlet UIButton *lightOnOff;
 
 @end
 
@@ -25,7 +30,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self //[1]オブザーバとして登録
                                              selector:@selector(recieveBeaconStatus:)                                                 name:@"BeaconStatus"
                                                object:nil];
-
+    self.rssiNumber.delegate = self;
+    lightOnOff = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,20 +56,33 @@
 //            [self lightoff];
 //        }
         
-        NSComparisonResult result = [rssi compare:[NSNumber numberWithInt:-70]];
+        NSComparisonResult result = [rssi compare:[NSNumber numberWithInt:rssiLimit]];
         switch(result) {
             case NSOrderedSame: // 一致したとき
                 break;
                 
             case NSOrderedAscending: // num1が小さいとき
                 [self lightoff];
+                lightOnOff = NO;
                 break;
                 
             case NSOrderedDescending: // num1が大きいとき
                 [self lighton];
+                lightOnOff = YES;
                 break;
         }
         
+    }
+    
+}
+- (IBAction)lightOnOff:(id)sender {
+    
+    if (lightOnOff == NO) {
+        [self lighton];
+        lightOnOff = YES;
+    } else if (lightOnOff == YES) {
+        [self lightoff];
+        lightOnOff = NO;
     }
     
 }
@@ -86,6 +105,14 @@
     [offcaptureDevice lockForConfiguration:&offerror];
     offcaptureDevice.torchMode = AVCaptureTorchModeOff;
     [offcaptureDevice unlockForConfiguration];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    rssiLimit = [self.rssiNumber.text intValue];
+    
+    return YES;
 }
 
 
