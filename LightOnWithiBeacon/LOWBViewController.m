@@ -7,6 +7,7 @@
 //
 
 #import "LOWBViewController.h"
+#define DEFAULT_RSSI_LIMIT @"-65"
 
 @interface LOWBViewController ()
 {
@@ -32,6 +33,8 @@
                                                object:nil];
     self.rssiNumber.delegate = self;
     lightOnOffStatus = NO;
+    self.rssiNumber.text = DEFAULT_RSSI_LIMIT;
+    rssiLimit = [DEFAULT_RSSI_LIMIT intValue];
 }
 
 - (void)didReceiveMemoryWarning
