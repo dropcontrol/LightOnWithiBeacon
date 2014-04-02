@@ -21,6 +21,9 @@
 		0572376118EB9ED8000824A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0572374318EB9ED8000824A5 /* UIKit.framework */; };
 		0572376918EB9ED8000824A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0572376718EB9ED8000824A5 /* InfoPlist.strings */; };
 		0572376B18EB9ED8000824A5 /* LightOnWithiBeaconTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572376A18EB9ED8000824A5 /* LightOnWithiBeaconTests.m */; };
+		0572377518EBA12E000824A5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0572377418EBA12E000824A5 /* AVFoundation.framework */; };
+		0572377818EBA1C3000824A5 /* LOWBiBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0572377718EBA1C3000824A5 /* LOWBiBeaconManager.m */; };
+		0572377A18EBA283000824A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0572377918EBA283000824A5 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		0572376618EB9ED8000824A5 /* LightOnWithiBeaconTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LightOnWithiBeaconTests-Info.plist"; sourceTree = "<group>"; };
 		0572376818EB9ED8000824A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0572376A18EB9ED8000824A5 /* LightOnWithiBeaconTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LightOnWithiBeaconTests.m; sourceTree = "<group>"; };
+		0572377418EBA12E000824A5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0572377618EBA1C3000824A5 /* LOWBiBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOWBiBeaconManager.h; sourceTree = "<group>"; };
+		0572377718EBA1C3000824A5 /* LOWBiBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOWBiBeaconManager.m; sourceTree = "<group>"; };
+		0572377918EBA283000824A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0572377A18EBA283000824A5 /* CoreLocation.framework in Frameworks */,
+				0572377518EBA12E000824A5 /* AVFoundation.framework in Frameworks */,
 				0572374218EB9ED8000824A5 /* CoreGraphics.framework in Frameworks */,
 				0572374418EB9ED8000824A5 /* UIKit.framework in Frameworks */,
 				0572374018EB9ED8000824A5 /* Foundation.framework in Frameworks */,
@@ -101,6 +110,8 @@
 		0572373E18EB9ED8000824A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0572377918EBA283000824A5 /* CoreLocation.framework */,
+				0572377418EBA12E000824A5 /* AVFoundation.framework */,
 				0572373F18EB9ED8000824A5 /* Foundation.framework */,
 				0572374118EB9ED8000824A5 /* CoreGraphics.framework */,
 				0572374318EB9ED8000824A5 /* UIKit.framework */,
@@ -119,6 +130,8 @@
 				0572375518EB9ED8000824A5 /* LOWBViewController.m */,
 				0572375718EB9ED8000824A5 /* Images.xcassets */,
 				0572374618EB9ED8000824A5 /* Supporting Files */,
+				0572377618EBA1C3000824A5 /* LOWBiBeaconManager.h */,
+				0572377718EBA1C3000824A5 /* LOWBiBeaconManager.m */,
 			);
 			path = LightOnWithiBeacon;
 			sourceTree = "<group>";
@@ -253,6 +266,7 @@
 				0572375018EB9ED8000824A5 /* LOWBAppDelegate.m in Sources */,
 				0572375618EB9ED8000824A5 /* LOWBViewController.m in Sources */,
 				0572374C18EB9ED8000824A5 /* main.m in Sources */,
+				0572377818EBA1C3000824A5 /* LOWBiBeaconManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

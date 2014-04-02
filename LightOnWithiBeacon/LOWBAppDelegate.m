@@ -7,12 +7,14 @@
 //
 
 #import "LOWBAppDelegate.h"
+#import "LOWBiBeaconManager.h"
 
 @implementation LOWBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [LOWBiBeaconManager sharedInstance];
     return YES;
 }
 							
